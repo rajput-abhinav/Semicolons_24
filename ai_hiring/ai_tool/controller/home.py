@@ -12,11 +12,14 @@ class HomeController(viewsets.ModelViewSet):
         try:
             # input_data = request.data
             data = {"data": "data"}
-            data = ["abc"]
-            prompt = "what is resume"
-            result = self.service.home(data)
+            job_des = request.body
+            job_des_str = job_des.decode('utf-8')
+            print(job_des)
+            prompt = 'what is resume'
+
+            result = self.service.home(f"{job_des_str}\n{prompt}")
             print(result)
-            print(request.body)
+            # print(request.body)
            
             # print(data)
             return JsonResponse({"result":result}, status=201)

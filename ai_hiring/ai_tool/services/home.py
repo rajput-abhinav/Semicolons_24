@@ -16,12 +16,12 @@ class HomeService():
         openai_api_type="azure",
     )
  
-    def home(self,data):
+    def home(self,prompt_and_data):
         try:
-            result = self.llm.invoke(data).content
-            # result = 'i am cool🐳'
-            print(data)
-            return result
+            # result = self.llm.invoke(data).content
+            result = 'i am cool🐳'
+            # print(data)
+            return prompt_and_data
         except Exception as e:
             print(f"Error invoking GPT: {e}")
             raise
